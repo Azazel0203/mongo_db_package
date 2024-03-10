@@ -35,6 +35,7 @@ jobs:
         pip install flake8 pytest tox tox-gh-actions
         pip list
         python3 -c "import os; print(os.getcwd())"
+        python3 -c "import os; os.chdir('..'); print(os.getcwd())"
         pip install -r requirements.txt
     - name: Test with tox
       run: tox
