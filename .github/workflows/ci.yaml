@@ -35,6 +35,6 @@ jobs:
         pip install flake8 pytest tox tox-gh-actions
         pwd
         ls
-        pip install -r "${pwd}\requirements.txt"
+        # pip install -r "${pwd}\requirements.txt"
     - name: Test with tox
       run: tox
