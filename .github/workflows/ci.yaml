@@ -35,7 +35,8 @@ jobs:
         pip install flake8 pytest tox tox-gh-actions
         pip list
         dir
-        echo %cd%
+        echo %CD%
+        echo $PWD
         pip install -r requirements.txt
     - name: Test with tox
       run: tox
