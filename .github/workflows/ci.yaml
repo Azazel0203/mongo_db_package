@@ -36,6 +36,7 @@ jobs:
         pip list
         python3 -c "import os; print(os.listdir())"
         python3 -c "import os; print(os.getcwd())"
+        python3 -c "import os; os.chdir('..'); print(os.getcwd()); print(os.listdir())"
         python3 -c "import os; os.chdir('..'); os.chdir('..'); print(os.getcwd()); print(os.listdir())"
         pip install -r requirements.txt
     - name: Test with tox
