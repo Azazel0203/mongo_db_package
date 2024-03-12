@@ -24,6 +24,7 @@ jobs:
         python-version: ["3.8", "3.9"]
 
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/setup-node@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
@@ -35,5 +36,7 @@ jobs:
         pip install flake8 pytest tox tox-gh-actions
         dir
         # pip install -r "${pwd}\requirements.txt"
+    - name: Install requirements.txt
+      run: pip install -r requirements.txt
     - name: Test with tox
       run: tox
