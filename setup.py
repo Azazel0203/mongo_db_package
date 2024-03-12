@@ -41,5 +41,5 @@ setup(
     },
     package_dir={"": "src"}, # location of my actual package
     packages=find_packages(where="src"), # find_packages
-    install_requires=get_requirements("requirements_dev.txt"),
+    install_requires=get_requirements("requirements.txt"),
 )
