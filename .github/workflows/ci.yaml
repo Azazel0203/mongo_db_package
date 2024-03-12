@@ -22,7 +22,6 @@ jobs:
         python-version: ["3.9", "3.8", "3.10"]
 
     steps:
-      - uses: actions/checkout@v2 # This step checks out a copy of your repository
       - uses: actions/setup-node@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
