@@ -11,7 +11,6 @@ ensure
 pytest==7.1.3 # testing use cases for unit and integration testing
 tox # tox.ini -> tests our code in different enviorments
 tox-gh-actions
-tox-factor
 # linitng tools => to keep the format and structure of the code standard
 black==22.8.0 
 flake8==5.0.4
