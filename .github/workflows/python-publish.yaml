@@ -31,6 +31,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         pip install -r requirements.txt
+        ls
         pip install build
     - name: Lint with flake8
       run: |
@@ -41,7 +42,7 @@ jobs:
     - name: Test with pytest
       run: |
         python -c "import os; os.listdir()"
-        ls -R
+        ls
         pytest -v   
     - name: Build package
       run: python -m build
