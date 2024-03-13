@@ -24,7 +24,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 __version__ = "0.0.3"
 REPO_NAME = "mongo_db_package"
-PKG_NAME= "mongoautomation"
+PKG_NAME= "mongo_only"
 AUTHOR_USER_NAME = "Azazel0203"
 AUTHOR_EMAIL = "aadarshkr.singh.cd.ece21@itbhu.ac.in"
 
