@@ -1,5 +1,7 @@
 import pandas as pd
 from pymongo.mongo_client import MongoClient
+from pymongo.collection import Collection
+from pymongo.database import Database
 
 
 class database:
@@ -13,7 +15,7 @@ class database:
         :type client: MongoClient
         """
         self.name = database_name
-        self.database = client[database_name]
+        self.database:Database = client[database_name]
         self.collections = {}
 
     def create_collections(self, collection_name:str):
@@ -23,7 +25,8 @@ class database:
         :param collection_name: The name of the collection to be created.
         :type collection_name: str
         """
-        self.collections[collection_name] = self.database[collection_name]
+        coll: Collection = self.database[collection_name]
+        self.collections[collection_name] = coll
 
 
 class mongo_db_operation:
