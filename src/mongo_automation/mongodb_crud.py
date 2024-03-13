@@ -2,6 +2,8 @@ import pandas as pd
 from pymongo.mongo_client import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
+from typing import Dict
+from typing import Any
 
 
 class database:
@@ -16,7 +18,7 @@ class database:
         """
         self.name = database_name
         self.database:Database = client[database_name]
-        self.collections = {}
+        self.collections: Dict[str, Any] = {}
 
     def create_collections(self, collection_name:str):
         """
@@ -38,8 +40,8 @@ class mongo_db_operation:
         :type client_url: str
         """
         self.client_url = client_url
-        self.client = MongoClient(self.client_url)
-        self.databases = {}
+        self.client: MongoClient = MongoClient(self.client_url)
+        self.databases: Dict[str, database] = {}
 
     def create_database(self, database_name:str):
         """
