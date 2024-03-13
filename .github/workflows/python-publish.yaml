@@ -40,6 +40,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        python -c "import os; os.listdir()"
+        ls -R
         pytest -v   
     - name: Build package
       run: python -m build
