@@ -1,22 +1,21 @@
 from setuptools import setup, find_packages
 from typing import List
-import os
+from pathlib import Path
 
 HYPEN_E_DOT = '-e .'
 
 
-# function to get the requiremtns
-def get_requirements(file_path:str) -> List[str]:
-    print(os.getcwd())
-    requirements = []
-    with open(file_path, 'r') as f:
-        requirements = f.readlines()
-        requirements = [req.replace("\n", "") for req in requirements]
-        
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
-    return requirements
-    
+# # function to get the requiremtns
+# def get_requirements(file_path:str) -> List[str]:
+#     requirements = []
+#     with open(file_path, 'r') as f:
+#         requirements = f.readlines()
+#         requirements = [req.replace("\n", "") for req in requirements]
+#         if HYPEN_E_DOT in requirements:
+#             requirements.remove(HYPEN_E_DOT)
+#     requirements.remove('')
+#     return requirements
+
 
 # funtion to ge the long description....same as the readme.md file
 with open('README.md', 'r', encoding='utf-8') as f:
@@ -43,5 +42,5 @@ setup(
     },
     package_dir={"": "src"}, # location of my actual package
     packages=find_packages(where="src"), # find_packages
-    # install_requires=get_requirements("requirements.txt"),
+    install_requires=["pymongo","pymongo[srv]","dnspython","pandas","numpy","ensure"],
 )

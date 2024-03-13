@@ -7,7 +7,7 @@ from typing import Any
 
 
 class database:
-    def __init__(self, database_name:str, client: MongoClient):
+    def __init__(self, database_name: str, client: MongoClient):
         """
         Initializes a database object with a specified name and client connection.
 
@@ -17,10 +17,10 @@ class database:
         :type client: MongoClient
         """
         self.name = database_name
-        self.database:Database = client[database_name]
+        self.database: Database = client[database_name]
         self.collections: Dict[str, Any] = {}
 
-    def create_collections(self, collection_name:str):
+    def create_collections(self, collection_name: str):
         """
         Creates a new collection in the database with the specified name.
 
@@ -32,7 +32,7 @@ class database:
 
 
 class mongo_db_operation:
-    def __init__(self, client_url:str):
+    def __init__(self, client_url: str):
         """
         Initializes a MongoDB client with the provided client URL and creates an empty dictionary to store databases.
 
@@ -43,7 +43,7 @@ class mongo_db_operation:
         self.client: MongoClient = MongoClient(self.client_url)
         self.databases: Dict[str, database] = {}
 
-    def create_database(self, database_name:str):
+    def create_database(self, database_name: str):
         """
         Creates a new database object and adds it to the dictionary of databases.
 
@@ -53,9 +53,10 @@ class mongo_db_operation:
         new_base = database(database_name, self.client)
         self.databases[database_name] = new_base
 
-    def insert_record(self, records:dict, collection_name:str, database_name:str):
+    def insert_record(self, records: dict, collection_name: str, database_name: str):
         """
-        Inserts one or multiple records into a specified collection within a database, creating the database and collection if they do not already exist.
+        Inserts one or multiple records into a specified collection within a database, creating the database and collection 
+if they do not already exist.
 
         :param records: The record(s) to be inserted into the collection.
         :type records: dict or list of dicts
@@ -80,10 +81,10 @@ class mongo_db_operation:
             else:
                 self.databases[database_name].collections[collection_name].insert_one(records)
 
-    def bulk_insert(self, file_path:str, collection_name:str, database_name:str):
+    def bulk_insert(self, file_path: str, collection_name: str, database_name: str):
         """
         Reads data from a CSV or Excel file, converts it to JSON format, and inserts it into a 
-        specified collection in a database.
+specified collection in a database.
 
         :param file_path: The path to the CSV or Excel file containing the data to be inserted.
         :type file_path: str
