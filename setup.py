@@ -1,11 +1,13 @@
 from setuptools import setup, find_packages
 from typing import List
+import os
 
 HYPEN_E_DOT = '-e .'
 
 
 # function to get the requiremtns
 def get_requirements(file_path:str) -> List[str]:
+    print(os.getcwd())
     requirements = []
     with open(file_path, 'r') as f:
         requirements = f.readlines()
@@ -41,5 +43,5 @@ setup(
     },
     package_dir={"": "src"}, # location of my actual package
     packages=find_packages(where="src"), # find_packages
-    install_requires=get_requirements("requirements.txt"),
+    # install_requires=get_requirements("requirements.txt"),
 )
